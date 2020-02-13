@@ -15,16 +15,16 @@
 
     <p><a href="https://www.w3schools.com">Clip to read the paper</a></p>
 
-    <p> <b>Abstract:<b> <p> 
+    <p><b>Abstract:<b><p> 
     
 
-    <p> Recently, sequence-to-sequence models with attention have been successfully applied in Text-to-speech (TTS). These models can generate near-human speech with a large accurately-transcribed speech corpus. However, preparing such a large data-set is both expensive and laborious. In this paper, we propose an unsupervised pre-training mechanism to alleviate the problem of heavy data demand. Specifically, we first extract the unsupervised linguistic labels from large-scale, publicly found, and untranscribed speech by using a Vector-quantization Variational-Autoencoder (VQ-VAE). We then pre-train the sequence-to-sequence TTS model by using the <unsupervised linguistic labels, speech> pairs. Finally, we fine-tune the model with a small amount of speech data to build the TTS model for the target speaker. As a result, both objective and subjective evaluation show our proposed method can synthesize more intelligible and natural speech with same amount of data. In addition, we extend out proposed method to a hypothesized low-resource case. We also validate the effectiveness of the method in this case by evaluations.</p>
+    <p>Recently, sequence-to-sequence models with attention have been successfully applied in Text-to-speech (TTS). These models can generate near-human speech with a large accurately-transcribed speech corpus. However, preparing such a large data-set is both expensive and laborious. In this paper, we propose an unsupervised pre-training mechanism to alleviate the problem of heavy data demand. Specifically, we first extract the unsupervised linguistic labels from large-scale, publicly found, and untranscribed speech by using a Vector-quantization Variational-Autoencoder (VQ-VAE). We then pre-train the sequence-to-sequence TTS model by using the <unsupervised linguistic labels, speech> pairs. Finally, we fine-tune the model with a small amount of speech data to build the TTS model for the target speaker. As a result, both objective and subjective evaluation show our proposed method can synthesize more intelligible and natural speech with same amount of data. In addition, we extend out proposed method to a hypothesized low-resource case. We also validate the effectiveness of the method in this case by evaluations.</p>
 
 
-    <p> <b> Results on 24-minute data <b> <p>
+    <p><strong>Results on 24-minute data<strong><p>
 
 
-    <p> These samples refer to Section 3.2 of our paper, which demostrate the effectiveness of our proposed pre-training method, which improves data efficiency for sequence-to-sequence TTS. Here are the speech synthesized by all model variants trained using 1-shard (i.e 24-minute) data. As you coul hear, speech produced by proposed pretrained Tacotron significantly outperforms those by the baseline Tacotron in terms of intelligibility and naturalness. The performace is even close to that of the upper-bound model, which is pretrained by paired data.<p>
+    <p>These samples refer to Section 3.2 of our paper, which demostrate the effectiveness of our proposed pre-training method, which improves data efficiency for sequence-to-sequence TTS. Here are the speech synthesized by all model variants trained using 1-shard (i.e 24-minute) data. As you coul hear, speech produced by proposed pretrained Tacotron significantly outperforms those by the baseline Tacotron in terms of intelligibility and naturalness. The performace is even close to that of the upper-bound model, which is pretrained by paired data.<p>
 <audio controls>
     <source src="1.wav" type="audio/wav">
     您的浏览器不支持该音频格式。
