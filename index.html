@@ -8,11 +8,18 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="index.js"></script>
 </head>
+<style type="text/css">
+div 
+{
+    background-color:#00FFFF;
+    overflow: scroll;
+}
+</style>
 
 <body>
-    <div id="main-content">
 
-    </div>
+    <div>
+    <div id="main-content"></div>
 
     <p><a href="https://www.w3schools.com">Clip to read the paper</a></p>
 
@@ -270,12 +277,12 @@
     <p><strong><mark>Overall Results for hypothesized low-resource languages</mark></strong></p>
 
 
-    <div style="height:100px;width:100px;overflow:auto;"> In this section, we present the synthesized speech in Section 3.4. These audios are synthesized by three model variants (Tac, T-VQ-A, T-VQ-E) trained by various amount of paired data, from 0.5 shard (12 minutes) to 3 shards (72 minutes).
+        <p>In this section, we present the synthesized speech in Section 3.4. These audios are synthesized by three model variants (Tac, T-VQ-A, T-VQ-E) trained by various amount of paired data, from 0.5 shard (12 minutes) to 3 shards (72 minutes).
         In this section, two hypothesized is included- English and Chinese Mandarin.
         Tac refers to the baseline model without any pre-training;
         T-VQ-A refers to the model pretrained in the proposed mode using speech in Asian languages (i.e. Korean and Japanese)
         T-VQ-E refers to the model pretrained in the proposed mode using speech in European languages (i.e. Germany, Spanish, and French)
-        </div>
+        </p>
 
 
 
@@ -284,7 +291,7 @@
      <p><strong><mark>English as the low-resource language</mark></strong></p>
 
 
-     <div style="height:100px;width:100px;overflow:auto;"><p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 0.5 shard
+        <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 0.5 shard
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 shard
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -295,7 +302,7 @@
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2.5 shards
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 shards
-        &nbsp &nbsp &nbsp &nbsp  </b></p></div>
+        &nbsp &nbsp &nbsp &nbsp  </b></p>
 
 
         <p><i>Text: "I found that the paper sack found on the sixth floor and the sample."</i></p>
@@ -539,6 +546,6 @@
         <source src="low-resource/ch/euro/3shard/01_01094.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
         </audio>
-
+        </div>
 </body>
 </html>
