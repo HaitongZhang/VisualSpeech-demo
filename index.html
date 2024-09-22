@@ -11,748 +11,270 @@
 <body>
     <div id="main-content"></div>
 
-    <p><a href="https://haitongzhang.github.io/CS-TTS/">Clip here to read the paper!</a></p>
-
     <p><b>Abstract:</b></p> 
     
 
 
 
-    <p>Recently, sequence-to-sequence models with attention have been successfully applied in Text-to-speech (TTS). These models can generate near-human speech with a large accurately-transcribed speech corpus. However, preparing such a large data-set is both expensive and laborious. In this paper, we propose an unsupervised pre-training mechanism to alleviate the problem of heavy data demand. Specifically, we first extract the unsupervised linguistic labels from large-scale, publicly found, and untranscribed speech by using a Vector-quantization Variational-Autoencoder (VQ-VAE). We then pre-train the sequence-to-sequence TTS model by using the (unsupervised linguistics label, speech) pairs. Finally, we fine-tune the model with a small amount of speech data to build the TTS model for the target speaker. As a result, both objective and subjective evaluation show our proposed method can synthesize more intelligible and natural speech with same amount of data. In addition, we extend our proposed method to the hypothesized low-resource case. We also validate the effectiveness of the proposed method in low-resource languages using objective evaluation.</p>
-
-    <p><strong><mark>Results on 24-minute data</mark></strong></p>
+    <p>Text-to-Speech (TTS) synthesis often face the ``one-to-many`` problem, where a single text input can result in multiple speech outputs with varying prosody due to insufficient prosodic information. Previous TTS models have attempted to extract prosodic information from text and speech but have struggled to generate speech with appropriate prosody for specific contexts. To address this challenge, this study explores the use of visual features to extract prosodic information, drawing inspiration from the successful application of visual features in speech synthesis, although not specifically for prosody. The findings demonstrate that visual features provide prosodic information that is not available from the text input alone, and their integration improves the performance of acoustic feature prediction. Our proposed model, VisualSpeech, incorporates both the visual and textual information, and the results demonstrate that the visual features help improve the naturalness of synthesized speech. This work highlights the potential of visual features in enhancing TTS systems, particularly from the perspective of prosody.</p>
 
 
-    <p>These samples refer to Section 3.2 of our paper, which demostrate the effectiveness of our proposed pre-training method, which improves data efficiency for sequence-to-sequence TTS. Here are the speech synthesized by all model variants trained using 1-shard (i.e 24-minute) data. As you could hear, speech produced by proposed pretrained Tacotron significantly outperforms those by the baseline Tacotron in terms of intelligibility and naturalness. The performace is even close to that of the upper-bound model, which is pretrained by paired data.</p>
+    <p><strong><mark>TTS Results</mark></strong></p>
+
+
+    <p>These samples refer to Section 4.4 of our paper, which demostrate the effectiveness of our proposed model, which improves prosody in TTS using visual features. Here are the speech synthesized by all model variants, including the baseline (i.e. Fastspeech2), VisualSpeech (Omnivore), and VisualSpeech (ResNet50) . As you could hear, speech produced by the proposed model VisualSpeech outperforms those by the baseline model Fastspeech2 in terms of prosody. The performace is even close to groud-truth.</p>
 
 
 
 
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Baseline &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Tacotron w/ pretrained decoder  &nbsp &nbsp &nbsp &nbsp    Tacotron w/ proposed pre-train &nbsp &nbsp &nbsp &nbsp        Tacotron(upper-bound model) </b></p>
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Fastspeech2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  VisualSpeech (Omnivore) &nbsp &nbsp &nbsp &nbsp    VisualSpeech (ResNet50) &nbsp &nbsp &nbsp &nbsp       groud-truth </b></p>
 
-    <p><i>Text: "This justification of the Secret Service's standing policy is not persuasive."</i></p>
+    <p><i>Text: "who's gonna defend your kids."</i></p>
 
 
 <audio controls>
-    <source src="wavs/en_B_1shard_01.wav" type="audio/wav">
+    <source src="wavs/tt0310793_1_b4vpGhO2LwA_3_synthesize_fs2.wav" type="audio/wav">
     您的浏览器不支持该音频格式。
 </audio>
 
 <audio controls>
-    <source src="wavs/en_S_1shard_01.wav" type="audio/wav">
+    <source src="wavs/tt0310793_1_b4vpGhO2LwA_3_synthesize_om.wav" type="audio/wav">
     您的浏览器不支持该音频格式。
 </audio>
 
 <audio controls>
-    <source src="wavs/en_V_1shard_01.wav" type="audio/wav">
+    <source src="wavs/tt0310793_1_b4vpGhO2LwA_3_synthesize_res.wav" type="audio/wav">
     您的浏览器不支持该音频格式。
 </audio>
 
 <audio controls>
-    <source src="wavs/en_P_1shard_01.wav" type="audio/wav">
+    <source src="wavs/tt0310793_1_b4vpGhO2LwA_3_gt.wav" type="audio/wav">
     您的浏览器不支持该音频格式。
 </audio>
 
 
 
-    <p><i>Text: "And from a specialist in psychiatric prognostication at Walter Reed Hospital."</i></p>
+    <p><i>Text: "It's okay, Rockle."</i></p>
 
 
     <audio controls>
-            <source src="wavs/en_B_1shard_02.wav" type="audio/wav">
+            <source src="wavs/tt0479143_3_Et_Bdct1T0U_35_synthesize_fs2.wav" type="audio/wav">
                 您的浏览器不支持该音频格式。
     </audio>
 
     <audio controls>
-            <source src="wavs/en_S_1shard_02.wav" type="audio/wav">
+            <source src="wavs/tt0479143_3_Et_Bdct1T0U_35_synthesize_om.wav" type="audio/wav">
                 您的浏览器不支持该音频格式。
     </audio>
 
     <audio controls>
-            <source src="wavs/en_V_1shard_02.wav" type="audio/wav">
+            <source src="wavs/tt0479143_3_Et_Bdct1T0U_35_synthesize_res.wav" type="audio/wav">
                 您的浏览器不支持该音频格式。
     </audio>
 
     <audio controls>
-            <source src="wavs/en_P_1shard_02.wav" type="audio/wav">
+            <source src="wavs/tt0479143_3_Et_Bdct1T0U_35_gt.wav" type="audio/wav">
                 您的浏览器不支持该音频格式。
     </audio>
 
 
 
-
-
-    <p><strong><mark>Overall Results</mark></strong></p>
-
-
-    <p>Here, we presents synthesized speech by all model variants trained by various amount of paired data, from 1 shards (24 minutes) to 3 shards (72 minutes).</p>
-
-
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 shard  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 shards  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp    3 shards &nbsp &nbsp &nbsp &nbsp  </b></p>
-
-
-     <p><i>Text: "I found that the paper sack found on the sixth floor and the sample."</i></p>
-
-     <p><b>Baseline</b></p>
-
-     <audio controls>
-        <source src="wavs/en_B_1shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_B_2shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    
+    <p><i>Text: "and keep moving forward."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_B_3shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt0479143_3_QrmQqEg4isU_27_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
-     <p><b>Tacotron w/ pretrained decoder</b></p>
+    <audio controls>
+            <source src="wavs/tt0479143_3_QrmQqEg4isU_27_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
 
-     <audio controls>
-        <source src="wavs/en_S_1shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+    <audio controls>
+            <source src="wavs/tt0479143_3_QrmQqEg4isU_27_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt0479143_3_QrmQqEg4isU_27_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-     <audio controls>
-        <source src="wavs/en_S_2shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+
+    <p><i>Text: "You have to show him balance."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_S_3shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt1226229_0_4_Anuo4_Tlo_26_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1226229_0_4_Anuo4_Tlo_26_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1226229_0_4_Anuo4_Tlo_26_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1226229_0_4_Anuo4_Tlo_26_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
 
-     <p><b>Tacotron w/ proposed pre-train</b></p>
-
-     <audio controls>
-        <source src="wavs/en_V_1shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_V_2shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    
+    <p><i>Text: "That's being the detective, be a Lieutenant."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_V_3shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt1408253_0_BzEjGy7EPIc_34_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1408253_0_BzEjGy7EPIc_34_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1408253_0_BzEjGy7EPIc_34_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1408253_0_BzEjGy7EPIc_34_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-     <p><b>Tacotron(upper-bound model)</b></p>
-
-     <audio controls>
-        <source src="wavs/en_P_1shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_P_2shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    <p><i>Text: "You are scared to death about their future."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_P_3shard_O.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt1742650_0_jawZFND4Bfc_46_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1742650_0_jawZFND4Bfc_46_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1742650_0_jawZFND4Bfc_46_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt1742650_0_jawZFND4Bfc_46_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-
-
-
-     <p><i>Text: "The events of that evening can best be appreciated through Marina Oswald's testimony."</i></p>
-
-
-<!--    <audio controls>-->
-<!--        <source src="en_B_1shard_O_1.wav" type="audio/wav">-->
-<!--        您的浏览器不支持该音频格式。-->
-<!--    </audio>-->
-
-     <p><b>Baseline</b></p>
-
-     <audio controls>
-        <source src="wavs/en_B_1shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_B_2shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    <p><i>Text: "I'm going to ask the district attorney to petition."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_B_3shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt2005374_7_F6E2ojebPlA_65_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
-     <p><b>Tacotron w/ pretrained decoder</b></p>
+    <audio controls>
+            <source src="wavs/tt2005374_7_F6E2ojebPlA_65_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
 
-     <audio controls>
-        <source src="wavs/en_S_1shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+    <audio controls>
+            <source src="wavs/tt2005374_7_F6E2ojebPlA_65_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2005374_7_F6E2ojebPlA_65_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-     <audio controls>
-        <source src="wavs/en_S_2shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    <p><i>Text: "You will not follow protocol."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_S_3shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt2510894_0_NNouwnR8QQw_50_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2510894_0_NNouwnR8QQw_50_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2510894_0_NNouwnR8QQw_50_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2510894_0_NNouwnR8QQw_50_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-
-     <p><b>Tacotron w/ proposed pre-train</b></p>
-
-     <audio controls>
-        <source src="wavs/en_V_1shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_V_2shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    
+    <p><i>Text: "It somewhat looks like you have sewn together."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_V_3shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt2702724_0_odvIh7iwK2E_19_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2702724_0_odvIh7iwK2E_19_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2702724_0_odvIh7iwK2E_19_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2702724_0_odvIh7iwK2E_19_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
 
-     <p><b>Tacotron(upper-bound model)</b></p>
-
-     <audio controls>
-        <source src="wavs/en_P_1shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
-
-
-     <audio controls>
-        <source src="wavs/en_P_2shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-    </audio>
+    
+    <p><i>Text: "Bet your feet one of the con."</i></p>
 
 
     <audio controls>
-        <source src="wavs/en_P_3shard_O_1.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
+            <source src="wavs/tt2719848_1_Q54GdrlgRoQ_49_synthesize_fs2.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
     </audio>
 
+    <audio controls>
+            <source src="wavs/tt2719848_1_Q54GdrlgRoQ_49_synthesize_om.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2719848_1_Q54GdrlgRoQ_49_synthesize_res.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+            <source src="wavs/tt2719848_1_Q54GdrlgRoQ_49_gt.wav" type="audio/wav">
+                您的浏览器不支持该音频格式。
+    </audio>
 
-
-    <p><strong><mark>Overall Results for hypothesized low-resource languages</mark></strong></p>
-
-        <p>In this section, we present the synthesized speech in Section 3.4. These audios are synthesized by three model variants (Tac, T-VQ-A, T-VQ-E) trained by various amount of paired data, from 0.5 shard (12 minutes) to 3 shards (72 minutes).
-        In this section, two hypothesized is included- English and Chinese Mandarin.
-        Tac refers to the baseline model without any pre-training;
-        T-VQ-A refers to the model pretrained in the proposed mode using speech in Asian languages (i.e. Korean and Japanese)
-        T-VQ-E refers to the model pretrained in the proposed mode using speech in European languages (i.e. Germany, Spanish, and French)
-        </p>
-
-
-
-
-
-     <p><strong><mark>English as the low-resource language</mark></strong></p>
-
-    <div style="height:1400px;width:2000px;overflow-x:hidden;" >
-
-        <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 0.5 shard
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 shard
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1.5 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2.5 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 shards
-        &nbsp &nbsp &nbsp &nbsp  </b></p>
-
-        <p><i>Text: "Because the variations possible preclude effective planning."</i></p>
-
-
-        <p><b>Tac</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/1shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/1halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/scratch/2shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/en/scratch/2halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/3shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-A</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/asian/halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/1shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/1halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/asian/2shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/en/asian/2halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/3shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-E</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/euro/halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/1shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/1halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/euro/2shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/en/euro/2halfshard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/3shard/LJ049-0064.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-    <p><i>Text: "That the interruption shall not take place for an hour, end quote."</i></p>
-
-
-        <p><b>Tac</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/1shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/1halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/scratch/2shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/en/scratch/2halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/scratch/3shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-A</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/asian/halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/1shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/1halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/asian/2shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/2halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/asian/3shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-E</b></p>
-
-        <audio controls>
-        <source src="low-resource/en/euro/halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/1shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/1halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/en/euro/2shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/en/euro/2halfshard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/en/euro/3shard/LJ049-0117.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-
-    <p><strong><mark>Chinese Mandarin as the low-resource language</mark></strong></p>
-
-
-        <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 0.5 shard
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 shard
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1.5 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2.5 shards
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 shards
-        &nbsp &nbsp &nbsp &nbsp  </b></p>
-
-        <p><i>Text: "这些地区的民众将会获得物资资源。"</i></p>
-
-
-        <p><b>Tac</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/1shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/1halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/2shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/2halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/3shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-A</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/1shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/1halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/asian/2shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/ch/asian/2halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/3shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-E</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/1shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/1halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/euro/2shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/ch/euro/2halfshard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/3shard/01_01045.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-    <p><i>Text: "回顾这些，仿佛回到了那些火热的时刻。"</i></p>
-
-
-        <p><b>Tac</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/1shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/1halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/2shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/2halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/scratch/3shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-A</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/1shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/1halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/asian/2shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/2halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/asian/3shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <p><b>T-VQ-E</b></p>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/1shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/1halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-        <audio controls>
-        <source src="low-resource/ch/euro/2shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-
-
-        <audio controls>
-        <source src="low-resource/ch/euro/2halfshard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-
-        <audio controls>
-        <source src="low-resource/ch/euro/3shard/01_01094.wav" type="audio/wav">
-        您的浏览器不支持该音频格式。
-        </audio>
-        </div>
 </body>
 </html>
